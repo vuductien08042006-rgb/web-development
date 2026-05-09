@@ -260,4 +260,55 @@ nav a:hover {
         grid-template-columns: 1fr;
     }
 }
+/* ===== PORTFOLIO ===== */
+.portfolio-section {
+    padding: 5rem 0;
+    background: white;
+}
 
+.portfolio-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: 2rem;
+}
+
+/* Filter buttons */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
