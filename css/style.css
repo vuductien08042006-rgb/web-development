@@ -529,3 +529,18 @@ footer {
     color: #64748b;
     font-size: 0.85rem;
 }
+/* ===== RESPONSIVE — CONTACT + FOOTER ===== */
+@media (max-width: 768px) {
+
+    /* Contact: 2 cột → 1 cột */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer: ngang → dọc */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
