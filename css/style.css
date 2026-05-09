@@ -241,4 +241,23 @@ nav a:hover {
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
     border-radius: 10px;
 }
+/* ===== RESPONSIVE — ABOUT + SKILLS ===== */
+@media (max-width: 768px) {
+
+    /* About: 2 cột → 1 cột */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 250px;
+    }
+
+    /* Skills: 2 cột → 1 cột */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
