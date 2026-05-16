@@ -1,1 +1,457 @@
-Câu A1.
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* ========================================
+   LAYOUT CHÍNH — CSS GRID (bonus: named areas)
+======================================== */
+.page-grid {
+  display: grid;
+
+  /* 3 cột: sidebar 200px | main 1fr | ads 200px */
+  grid-template-columns: 200px 1fr 200px;
+
+  /* Named areas (bonus) */
+  grid-template-areas:
+    "header  header  header"
+    "hero    hero    hero"
+    "sidebar main    ads"
+    "footer  footer  footer";
+
+  gap: 16px;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* ========================================
+   HEADER — span full width
+======================================== */
+.header {
+  grid-area: header;            /* named area */
+  grid-column: 1 / -1;         /* full width */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a1a2e;
+  padding: 0 32px;
+  height: 64px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.header-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e94560;
+}
+
+.header-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.header-nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.header-nav a:hover {
+  color: white;
+}
+
+.header-auth {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-login {
+  color: white;
+  text-decoration: none;
+  padding: 6px 16px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.btn-login:hover { background: #555; }
+
+.btn-register {
+  color: white;
+  text-decoration: none;
+  padding: 6px 16px;
+  background: #e94560;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.btn-register:hover { background: #c73652; }
+
+/* ========================================
+   HERO BANNER — span full width
+======================================== */
+.hero {
+  grid-area: hero;              /* named area */
+  grid-column: 1 / -1;         /* full width */
+
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  padding: 48px 40px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: #e94560;
+  color: white;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  color: #aaa;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.hero-price {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.old-price {
+  color: #666;
+  text-decoration: line-through;
+  font-size: 15px;
+}
+
+.new-price {
+  color: #e94560;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.btn-hero {
+  background: #e94560;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-hero:hover {
+  background: #c73652;
+  transform: translateY(-2px);
+}
+
+.hero-img {
+  font-size: 120px;
+}
+
+/* ========================================
+   SIDEBAR — bộ lọc
+======================================== */
+.sidebar {
+  grid-area: sidebar;           /* named area */
+
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  align-self: start;            /* không kéo dài full height */
+}
+
+.sidebar h3 {
+  font-size: 16px;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e94560;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group h4 {
+  font-size: 13px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.filter-group input[type="checkbox"] {
+  accent-color: #e94560;
+}
+
+.btn-filter {
+  width: 100%;
+  padding: 10px;
+  background: #e94560;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-filter:hover { background: #c73652; }
+
+/* ========================================
+   MAIN CONTENT — grid con 3 cột
+======================================== */
+.main {
+  grid-area: main;              /* named area */
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.main-header h2 {
+  font-size: 20px;
+  color: #1a1a2e;
+}
+
+.sort-select {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  background: white;
+  cursor: pointer;
+}
+
+/* Grid con 3 cột cho product cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* ========================================
+   PRODUCT CARDS
+======================================== */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Card nổi bật span 2 cột (bonus) */
+.card-featured {
+  grid-column: span 2;          /* chiếm 2 cột */
+  flex-direction: row;          /* ảnh | nội dung nằm ngang */
+}
+
+.card-featured .card-img {
+  font-size: 80px;
+  padding: 30px 24px;
+  background: #f0f4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+}
+
+.card-img {
+  font-size: 52px;
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-tag {
+  display: inline-block;
+  background: #fff0f3;
+  color: #e94560;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.card-body h4 {
+  font-size: 15px;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.card-desc {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 15px;
+  color: #e94560;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.btn-buy {
+  margin-top: auto;
+  padding: 8px 12px;
+  background: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-buy:hover { background: #e94560; }
+
+/* ========================================
+   ADS SIDEBAR
+======================================== */
+.ads {
+  grid-area: ads;               /* named area */
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: start;
+}
+
+.ads h3 {
+  font-size: 14px;
+  color: #555;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.ad-banner {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  border-radius: 12px;
+  padding: 20px 14px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.ad-banner:hover { transform: scale(1.03); }
+
+.ad-img {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.ad-banner p {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #e94560;
+}
+
+/* ========================================
+   FOOTER — span full width
+======================================== */
+.footer {
+  grid-area: footer;            /* named area */
+  grid-column: 1 / -1;         /* full width */
+
+  background: #1a1a2e;
+  color: #aaa;
+  padding: 40px 40px 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 28px;
+}
+
+.footer-col h4 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.footer-col p,
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: #888;
+  text-decoration: none;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.footer-col a:hover { color: #e94560; }
+
+.footer-copy {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  border-top: 1px solid #2a2a3e;
+  padding-top: 16px;
+}

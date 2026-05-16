@@ -65,3 +65,63 @@ Câu A2.
         ├─────────┼─────────┼─────────┤
         │ Item 7  │ (trống) │ (trống) │
         └─────────┴─────────┴─────────┘
+Câu C1.
+    1. Navigation bar ngang (logo + menu + buttons)
+        → Flexbox
+        Navbar là bố cục 1 chiều (ngang), các phần tử xếp theo hàng. justify-content: space-between chia logo trái, menu giữa, buttons phải rất tự nhiên. Grid không cần thiết ở đây.
+    2. Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước)
+        → Grid
+        Bố cục 2 chiều (hàng + cột), cần các ô đều nhau chính xác. repeat(3, 1fr) tạo 3 cột bằng nhau, ảnh tự động xuống hàng dù bao nhiêu ảnh. Flexbox khó kiểm soát chiều rộng đều nhau khi số lượng thay đổi.
+    3. Layout blog: main content + sidebar
+        → Grid
+        Cần định nghĩa 2 vùng rõ ràng với kích thước cố định/linh hoạt. Grid grid-template-columns: 1fr 300px diễn đạt ý định rõ ràng hơn. Nếu dùng Flexbox phải dùng flex-shrink, flex-grow phức tạp hơn.
+    4. Footer với 4 cột thông tin
+        → Grid
+        4 cột đều nhau, cố định — đúng bài toán của Grid. repeat(4, 1fr) tạo 4 cột bằng nhau tự động. Dễ responsive hơn Flexbox khi cần đổi thành 2 cột trên mobile.
+    5. Card sản phẩm (ảnh trên, text giữa, nút luôn dính đáy)
+        → Flexbox
+        Bên trong card là bố cục 1 chiều dọc. flex-direction: column + margin-top: auto trên nút là kỹ thuật chuẩn để nút luôn dính đáy dù nội dung dài ngắn khác nhau.
+Câu C2.
+    Lỗi 1: Nút "Mua" bị nhảy lên/xuống
+        Nguyên nhân: Card không có display: flex; flex-direction: column nên các phần tử bên trong xếp bình thường, không có cơ chế đẩy nút xuống đáy. Tên sản phẩm dài ngắn khác nhau → nút bị nhảy loạn.
+    /* ✅ Sau — đã sửa */
+        .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch; /* tất cả card đều chiều cao nhau */
+        }
+        .card {
+        width: 30%;
+        margin: 1.5%;
+        display: flex;           /* thêm */
+        flex-direction: column;  /* thêm — xếp dọc */
+        }
+        .card img { width: 100%; }
+        .card h3 { font-size: 18px; }
+        .card .btn {
+        padding: 10px;
+        margin-top: auto;        /* thêm — đẩy nút xuống đáy */
+        }
+
+    Lỗi 2: Items vẫn dính góc trái trên
+        Nguyên nhân: display: flex tạo flexbox nhưng thiếu justify-content và align-items để căn giữa. Mặc định flex là justify-content: flex-start và align-items: stretch nên content dính góc trái trên.
+    /* ✅ Sau — đã sửa */
+        .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center; /* thêm — căn giữa ngang */
+        align-items: center;     /* thêm — căn giữa dọc */
+        }
+        .hero-content {
+        text-align: center;
+        }
+
+    Lỗi 3: Sidebar bị co lại
+        Nguyên nhân: Mặc định flex items có flex-shrink: 1 — cho phép co lại khi không đủ chỗ. Khi content quá dài, sidebar bị ép co nhỏ hơn 250px để nhường chỗ.
+    /* ✅ Sau — đã sửa */
+        .layout { display: flex; }
+        .sidebar {
+        width: 250px;
+        flex-shrink: 0; /* thêm — không cho phép co lại */
+        }
+        .content { flex: 1; }
