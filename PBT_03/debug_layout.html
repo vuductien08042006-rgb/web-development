@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug CSS Layout — C1</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+
+    <h1>❌ Layout gốc — BỊ VỠ</h1>
+    <p class="desc">Tổng = 342 + 722 = <strong>1064px > 960px</strong> → content bị đẩy xuống dòng</p>
+    <div class="container broken">
+        <div class="sidebar broken-sidebar">
+            <h2>Sidebar</h2>
+            <p>width: 300px</p>
+            <p>padding: 20px</p>
+            <p>border: 1px</p>
+            <p class="actual">Thực tế: 342px</p>
+        </div>
+        <div class="content broken-content">
+            <h2>Content</h2>
+            <p>width: 660px</p>
+            <p>padding: 30px</p>
+            <p>border: 1px</p>
+            <p class="actual">Thực tế: 722px</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <hr>
+
+    <h1>✅ Cách sửa 1 — Dùng border-box</h1>
+    <p class="desc">Thêm box-sizing: border-box → tổng = 300 + 660 = <strong>960px</strong></p>
+    <div class="container">
+        <div class="sidebar fix1-sidebar">
+            <h2>Sidebar</h2>
+            <p>width: 300px</p>
+            <p>padding: 20px</p>
+            <p>border: 1px</p>
+            <p class="ok">Thực tế: 300px ✓</p>
+        </div>
+        <div class="content fix1-content">
+            <h2>Content</h2>
+            <p>width: 660px</p>
+            <p>padding: 30px</p>
+            <p>border: 1px</p>
+            <p class="ok">Thực tế: 660px ✓</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <hr>
+
+    <h1>✅ Cách sửa 2 — Tính lại width (không dùng border-box)</h1>
+    <p class="desc">Trừ padding + border → sidebar: 258px, content: 598px → tổng = <strong>960px</strong></p>
+    <div class="container">
+        <div class="sidebar fix2-sidebar">
+            <h2>Sidebar</h2>
+            <p>width: 258px</p>
+            <p>padding: 20px</p>
+            <p>border: 1px</p>
+            <p class="ok">Thực tế: 300px ✓</p>
+        </div>
+        <div class="content fix2-content">
+            <h2>Content</h2>
+            <p>width: 598px</p>
+            <p>padding: 30px</p>
+            <p>border: 1px</p>
+            <p class="ok">Thực tế: 660px ✓</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+</body>
+</html>
