@@ -1,0 +1,59 @@
+/* 1 */
+p {
+    color: red;
+}
+/* Specificity: 0,0,1 */
+
+/* 2 */
+.text {
+    color: blue;
+}
+/* Specificity: 0,1,0 */
+
+/* 3 */
+.highlight {
+    color: green;
+}
+/* Specificity: 0,1,0 */
+
+/* 4 */
+p.text {
+    color: orange;
+}
+/* Specificity: 0,1,1 */
+
+/* 5 */
+p.highlight {
+    color: purple;
+}
+/* Specificity: 0,1,1 */
+
+/* 6 */
+.text.highlight {
+    color: brown;
+}
+/* Specificity: 0,2,0 */
+
+/* 7 */
+p.text.highlight {
+    color: pink;
+}
+/* Specificity: 0,2,1 */
+
+/* 8 */
+#demo {
+    color: cyan;
+}
+/* Specificity: 1,0,0 */
+
+/* 9 */
+#demo.text {
+    color: gray;
+}
+/* Specificity: 1,1,0 */
+
+/* 10 */
+p#demo.text.highlight {
+    color: black;
+}
+/* Specificity: 1,2,1 */
