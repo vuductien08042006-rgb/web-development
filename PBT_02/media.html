@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Multimedia</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        section{
+            margin-bottom: 40px;
+        }
+
+        figure{
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        figcaption{
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        video,
+        audio,
+        iframe{
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .logo{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>ShopTLU Multimedia</h1>
+
+    <!-- SVG LOGO -->
+    <section class="logo">
+
+        <h2>Logo SVG</h2>
+
+        <svg width="150" height="150">
+
+            <circle
+                cx="75"
+                cy="75"
+                r="60"
+                fill="royalblue"
+            ></circle>
+
+            <text
+                x="50%"
+                y="50%"
+                text-anchor="middle"
+                fill="white"
+                dy=".3em"
+                font-size="28"
+            >
+                TLU
+            </text>
+
+        </svg>
+
+    </section>
+
+    <!-- ẢNH SẢN PHẨM -->
+    <section>
+
+        <h2>Ảnh sản phẩm</h2>
+
+        <!-- Ảnh 1 -->
+        <figure>
+
+            <img
+                src="https://picsum.photos/600/400?random=1"
+                alt="iPhone 16 Pro Max màu Titan"
+                loading="lazy"
+            >
+
+            <figcaption>
+                iPhone 16 Pro Max — 25.990.000đ
+            </figcaption>
+
+        </figure>
+
+        <!-- Ảnh 2 -->
+        <figure>
+
+            <img
+                src="https://picsum.photos/600/400?random=2"
+                alt="Laptop gaming RGB"
+                loading="lazy"
+            >
+
+            <figcaption>
+                Laptop Gaming RTX 4060
+            </figcaption>
+
+        </figure>
+
+        <!-- Ảnh 3 -->
+        <figure>
+
+            <img
+                src="https://picsum.photos/600/400?random=3"
+                alt="Tai nghe không dây màu đen"
+                loading="lazy"
+            >
+
+            <figcaption>
+                Tai nghe Bluetooth Noise Cancelling
+            </figcaption>
+
+        </figure>
+
+    </section>
+
+    <!-- YOUTUBE VIDEO -->
+    <section>
+
+        <h2>Video YouTube</h2>
+
+        <iframe
+            width="800"
+            height="450"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY"
+            title="YouTube video"
+            allowfullscreen
+        ></iframe>
+
+    </section>
+
+    <!-- VIDEO HTML5 -->
+    <section>
+
+        <h2>Video giới thiệu sản phẩm</h2>
+
+        <video
+            controls
+            poster="https://picsum.photos/800/450"
+        >
+
+            <source src="movie.mp4" type="video/mp4">
+
+            <source src="movie.webm" type="video/webm">
+
+            Trình duyệt của bạn không hỗ trợ video.
+
+        </video>
+
+    </section>
+
+    <!-- AUDIO -->
+    <section>
+
+        <h2>Nhạc nền giới thiệu</h2>
+
+        <audio controls>
+
+            <source src="music.mp3" type="audio/mpeg">
+
+            Trình duyệt của bạn không hỗ trợ audio.
+
+        </audio>
+
+    </section>
+
+</body>
+</html>
