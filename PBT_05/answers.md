@@ -189,5 +189,135 @@ Câu A4.
         }
         Tại sao trình duyệt KHÔNG đọc được .scss?
         Trình duyệt chỉ hiểu HTML, CSS, JavaScript thuần túy. File .scss là ngôn ngữ mở rộng do con người tạo ra để viết code dễ hơn, trình duyệt không có engine để xử lý cú pháp như $variable, @mixin, hay nesting.
+Câu C2.
+    Mobile: Những gì bị ẩn? Form nằm đầu?
+        Không ẩn section nào, nhưng sidebar không tồn tại. Grid ảnh rút còn 2 cột. Form đặt bàn nằm ngay sau Hero — đây là hành động chính của người dùng, ưu tiên cao nhất trên mobile.
+    Tablet: Grid ảnh mấy cột? Bản đồ nằm đâu?
+        Grid ảnh 3 cột. Bản đồ nằm giữa trang, sau phần grid ảnh (layout single-column, không có sidebar).
+    Desktop: Layout bao nhiêu cột? Sidebar có không?
+        Layout 2 cột chính: cột trái (flex: 2) chứa grid ảnh 3 cột + bản đồ; cột phải (flex: 1) là sidebar cố định chứa form đặt bàn. Footer 3–4 cột
+    CSS  skeketon.
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        }
+
+        .hero {
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        }
+
+        .page-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "form"
+            "food-grid"
+            "map";
+        gap: 24px;
+        padding: 16px;
+        }
+
+        .booking-form {
+        grid-area: form;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        }
+
+        .food-grid {
+        grid-area: food-grid;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        }
+
+        .map-section {
+        grid-area: map;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        }
+
+        .footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 24px 16px;
+        gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+        .page-body {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+            "form"
+            "food-grid"
+            "map";
+            padding: 24px;
+        }
+
+        .booking-form {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .food-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .footer {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+
+        @media (min-width: 1024px) {
+        .page-body {
+            grid-template-columns: 2fr 1fr;
+            grid-template-areas:
+            "food-grid form"
+            "map       form";
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .booking-form {
+            grid-template-columns: 1fr;
+            position: sticky;
+            top: 20px;
+        }
+
+        .food-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .footer {
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        }
+Câu C1.
+    Navigation thay đổi thế nào?
+        Mobile (375px): Navbar rút gọn tối đa — chỉ còn icon hamburger ☰ bên trái, logo ở giữa, và 2 icon (chuông + giỏ hàng) bên phải. Toàn bộ text link ("Kênh người bán", "Tải ứng dụng", "Tài khoản") bị ẩn.
+        Tablet (768px): Hamburger biến mất, search bar xuất hiện inline trong navbar. Các text link vẫn ẩn, chỉ hiện icon. Category bar bên dưới navbar chuyển sang dạng scroll ngang.
+        Desktop (1440px): Navbar đầy đủ — hiện text "Kênh người bán · Tải ứng dụng · Thông báo · Giỏ hàng · Tài khoản ▾". Sidebar danh mục cố định bên trái, dropdown mega menu khi hover.
+    Elements nào bị ẩn trên mobile?
+        Sidebar danh mục bên trái (display: none)
+        Text label trong navbar ("Tài khoản", "Thông báo", v.v.)
+        Sub-banner phụ bên cạnh banner chính
+        Bộ lọc dạng dropdown ngang (thay bằng nút "Lọc" modal)
+        Footer toàn bộ cột links (chỉ giữ logo + app download)
+        Thanh "Shopee Đảm Bảo · Hàng chính hãng · ..." phía trên navbar
+    Font size có thay đổi không?
+        Có, nhưng thay đổi nhỏ (~10–15%)
+    Lưới content thay đổi mấy cột?:
+        Mobile: 2 cột
+        Tablet: 4 cột
+        Desktop: 6 cột
+
 
 
