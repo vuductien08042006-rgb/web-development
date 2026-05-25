@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Positioning Playground</title>
+  <link rel="stylesheet" href="positioning.css" />
+</head>
+<body>
+
+  <!-- 1. Fixed Header -->
+  <header class="fixed-header">
+    <div class="header-logo">⚡ ShopZone</div>
+    <nav class="header-nav">
+      <a href="#">Trang chủ</a>
+      <a href="#">Sản phẩm</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+  </header>
+
+  <!-- Main layout -->
+  <div class="main-wrapper">
+
+    <!-- 2. Sticky Sidebar -->
+    <aside class="sidebar">
+      <h3>📂 Danh mục</h3>
+      <ul>
+        <li>📱 Điện thoại</li>
+        <li>💻 Laptop</li>
+        <li> Tai nghe</li>
+        <li>⌚ Đồng hồ</li>
+        <li>📷 Máy ảnh</li>
+        <li>🖨️ Máy in</li>
+      </ul>
+    </aside>
+    <main class="content">
+      <h2 class="section-title">🔥 Sản phẩm nổi bật</h2>
+
+      <div class="card-grid">
+
+        <div class="card">
+          <span class="badge-hot">HOT</span>
+          <div class="card-img">📱</div>
+          <div class="card-body">
+            <h4>iPhone 15 Pro</h4>
+            <p>29.990.000 ₫</p>
+            <button class="btn-buy">Mua ngay</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge-hot">HOT</span>
+          <div class="card-img">💻</div>
+          <div class="card-body">
+            <h4>MacBook Air M2</h4>
+            <p>27.990.000 ₫</p>
+            <button class="btn-buy">Mua ngay</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">🎧</div>
+          <div class="card-body">
+            <h4>AirPods Pro</h4>
+            <p>6.490.000 ₫</p>
+            <button class="btn-buy">Mua ngay</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge-hot">HOT</span>
+          <div class="card-img">⌚</div>
+          <div class="card-body">
+            <h4>Apple Watch S9</h4>
+            <p>11.990.000 ₫</p>
+            <button class="btn-buy">Mua ngay</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">📷</div>
+          <div class="card-body">
+            <h4>Sony A7 IV</h4>
+            <p>65.990.000 ₫</p>
+            <button class="btn-buy">Mua ngay</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">🖨️</div>
+          <div class="card-body">
+            <h4>HP LaserJet</h4>
+            <p>4.990.000 ₫</p>
+            <button class="btn-buy">Mua ngay</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="extra-content">
+        <h2 class="section-title">📦 Về chúng tôi</h2>
+        <p>ShopZone là nền tảng mua sắm công nghệ hàng đầu Việt Nam.</p>
+        <p>Chúng tôi cam kết mang đến trải nghiệm mua sắm tốt nhất.</p>
+        <p>Với đội ngũ hơn 500 nhân viên trên toàn quốc.</p>
+       
+      </div>
+
+    </main>
+  </div>
+
+  <!-- 4. Scroll to Top button -->
+  <button class="scroll-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+</body>
+</html>
+
+   
