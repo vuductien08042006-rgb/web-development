@@ -158,5 +158,6 @@ nav ul a:hover { color: #E63946; }
     Khi NÊN dùng Bootstrap:
         Dự án cần làm nhanh, prototype, hackathon, admin panel nội bộ, team không có designer, cần giao diện chuẩn nhìn được ngay.
     Khi KHÔNG NÊN dùng Bootstrap:
-        Dự án có thiết kế riêng độc đáo từ designer, landing page cần pixel-perfect theo bản Figma, cần tối ưu performance tuyệt đối (Bootstrap thêm ~30KB CSS không dùng đến), hoặc khi design system của công ty đã có sẵn component riêng.    
+        Dự án có thiết kế riêng độc đáo từ designer, landing page cần pixel-perfect theo bản Figma, cần tối ưu performance tuyệt đối (Bootstrap thêm ~30KB CSS không dùng đến), hoặc khi design system của công ty đã có sẵn component riêng. 
+    ---the end---   
 
