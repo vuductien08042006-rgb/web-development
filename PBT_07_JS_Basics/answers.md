@@ -54,3 +54,33 @@ Câu A5.
         <p>${description}</p>
         <span>Giá: ${price}đ</span>
         </div>`;
+Câu C1.
+        -Lỗi 1 — Dùng = thay vì == trong điều kiện
+                Sửa:
+                if (giaSauGiam === 0)
+        -Lỗi 2 — Truyền chuỗi thay vì số
+                Sửa:
+                const gia = tinhGiaGiamGia(100000, 20)
+        -Lỗi 3 —  Thêm vào đầu hàm:
+                if (typeof giaBan !== "number" || isNaN(giaBan) || giaBan < 0) {
+                return "Giá bán không hợp lệ"
+                }
+        -Lỗi 4 — phanTramGiam = 110 vượt 100 nhưng không return lỗi rõ
+                Đã có kiểm tra, nhưng thông báo nên rõ hơn:
+                return `Lỗi: ${phanTramGiam}% không hợp lệ (phải từ 0-100)`
+        -Lỗi 5 — Thiếu kiểm tra giaBan = 0
+                Đã được fix sau khi sửa Lỗi 1
+        -Lỗi 6 (lỗi ẩn) — var i trong vòng lặp + setTimeout
+                for (var i = 0; i < 5; i++) {
+                setTimeout(function() {
+                        console.log("Item " + i)  // In ra "Item 5" cả 5 lần!
+                }, 1000)
+                }
+        -Sửa bằng let — let có block scope, mỗi vòng lặp giữ riêng giá trị i
+                for (let i = 0; i < 5; i++) {
+                setTimeout(function() {
+                        console.log("Item " + i)  // In đúng: 0, 1, 2, 3, 4
+                }, 1000)
+                }
+                -Tại sao var bị lỗi? Vì var là function scope — tất cả các callback setTimeout dùng chung cùng một biến i. Đến khi timeout 1000ms chạy, vòng lặp đã chạy xong, i = 5 rồi → in ra Item 5 cả 5 lần.
+                let là block scope — mỗi lần lặp tạo ra một biến i riêng, setTimeout giữ đúng giá trị của lần lặp đó.
