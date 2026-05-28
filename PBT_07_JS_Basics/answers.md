@@ -84,3 +84,4 @@ Câu C1.
                 }
                 -Tại sao var bị lỗi? Vì var là function scope — tất cả các callback setTimeout dùng chung cùng một biến i. Đến khi timeout 1000ms chạy, vòng lặp đã chạy xong, i = 5 rồi → in ra Item 5 cả 5 lần.
                 let là block scope — mỗi lần lặp tạo ra một biến i riêng, setTimeout giữ đúng giá trị của lần lặp đó.
+---the end---
