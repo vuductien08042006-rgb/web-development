@@ -199,3 +199,4 @@ Câu C2.
         4. Hai rủi ro nếu chỉ validate Frontend
         -Hacker gửi dữ liệu độc hại như SQL Injection hoặc XSS.
         -User bypass validation để gửi dữ liệu sai hoặc gian lận hệ thống.
+        -
