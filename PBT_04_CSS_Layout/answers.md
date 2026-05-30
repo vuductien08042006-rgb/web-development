@@ -125,4 +125,4 @@ Câu C2.
         flex-shrink: 0; /* thêm — không cho phép co lại */
         }
         .content { flex: 1; }
-        ---
+        ----
