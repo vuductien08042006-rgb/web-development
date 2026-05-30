@@ -103,5 +103,5 @@ Phần B.
      -Lỗi 10: Dòng 37 — Có 2 thẻ <main> (sai semantic) — Đổi thẻ <main> thứ hai thành <aside>
      -Lỗi 11: Dòng 42 — Thẻ <p> trong <footer> không đóng — Thêm </p>
      -Lỗi 12: Dòng 2 — Thẻ <html> thiếu thuộc tính ngôn ngữ — Thêm lang="vi"
-     ---
+     ----
   
