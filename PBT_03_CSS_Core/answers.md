@@ -328,5 +328,5 @@ Câu C2.
         .card p { color: inherit } → bình thường sẽ kế thừa blue
         Nhưng .highlight { color: green !important } → !important thắng
         ✅ green
-        ----
+        -----
                 
